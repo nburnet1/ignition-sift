@@ -1,0 +1,72 @@
+{
+    "name": "ignition-sift",
+    "displayName": "Ignition Sift",
+    "extensionDependencies": [
+        "ms-pyright.pyright"
+    ],
+    "extensionPack": [
+        "keith-gamble.ignition-flint"
+    ],
+    "description": "Barebones, stub-driven auto-imports for Ignition scripting projects.",
+    "version": "0.0.0",
+    "publisher": "nburnet1",
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:python"
+    ],
+    "main": "./dist/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "ignitionSift.initStubs",
+                "title": "Ignition Sift: Init Ignition Stubs"
+            },
+            {
+                "command": "ignitionSift.generateAllStubs",
+                "title": "Ignition Sift: Generate All Stubs"
+            }
+        ],
+        "configuration": {
+            "title": "Ignition Sift",
+            "properties": {
+                "ignitionSift.stubDir": {
+                    "type": "string",
+                    "default": ".stubs",
+                    "description": "Directory where .pyi stubs are written."
+                },
+                "ignitionSift.stubGenerator": {
+                    "type": "string",
+                    "default": "builtin",
+                    "description": "Path to external stub generator or 'builtin'."
+                },
+                "ignitionSift.pythonPath": {
+                    "type": "string",
+                    "default": "python3",
+                    "description": "Python executable used to run the stub generator."
+                },
+                "ignitionSift.generateStubsOnSave": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "ignitionSift.maxImportSuggestions": {
+                    "type": "number",
+                    "default": 15
+                }
+            }
+        }
+    },
+    "scripts": {
+        "build": "tsc -p .",
+        "watch": "tsc -w -p ."
+    },
+    "devDependencies": {
+        "typescript": "^5.4.5",
+        "@types/node": "^20.11.19",
+        "@types/vscode": "^1.85.0"
+    }
+}
