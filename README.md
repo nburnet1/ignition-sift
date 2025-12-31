@@ -60,6 +60,8 @@ _Note: changing the stubs directory in Ignition Sift means you will need to chan
 
 On a new project, you will want to run both `initStubs` and `generateAllStubs`.
 
+_Note: for stub generator, there is a [builtin generator](https://github.com/nburnet1/ignition-sift/blob/main/python/builtin_stubgen.py) that I provide. but you can pass in your own. With this in mind, This extension can run code outside of vscode as we are calling a python binary._
+
 - `ignitionSift.initStubs`
 	- Adds the ignition native stubs to your `.stubs` directory
 - `ignitionSift.generateAllStubs`
@@ -72,21 +74,21 @@ Ignition Sift tries its best to stay out of the way. Pyright will be doing most 
 
 **Import System Function**
 
-![img](https://github.com/nburnet1/ignition-sift/blob/main/docs/imgs/importJson.png)
+![img](docs/imgs/importJson.png)
 
 _Relative path added at top of file_
 
-![img](https://github.com/nburnet1/ignition-sift/blob/main/docs/imgs/importJsonWorks.png)
+![img](docs/imgs/importJsonWorks.png)
 
 **Multiple Options**
 
-![img](https://github.com/nburnet1/ignition-sift/blob/main/docs/imgs/multipleOptions.png)
+![img](docs/imgs/multipleOptions.png)
 
-![img](https://github.com/nburnet1/ignition-sift/blob/main/docs/imgs/selectedMultipleOptions.png)
+![img](docs/imgs/selectedMultipleOptions.png)
 
 _Once imported, pyright can take over in suggesting more functions and classes in the specific package._
 
-![img](https://github.com/nburnet1/ignition-sift/blob/main/docs/imgs/pyrightPromptOnceImported.png)
+![img](docs/imgs/pyrightPromptOnceImported.png)
 
 
 
@@ -95,7 +97,7 @@ _Once imported, pyright can take over in suggesting more functions and classes i
 
 Once a file has been saved and a stub generated, we then can immediately auto import the code.
 
-![img](https://github.com/nburnet1/ignition-sift/blob/main/docs/imgs/userCreatedFunctionImported.png)
+![img](docs/imgs/userCreatedFunctionImported.png)
 
 
 
