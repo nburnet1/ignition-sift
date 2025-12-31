@@ -56,7 +56,7 @@ _Note: changing the stubs directory in Ignition Sift means you will need to chan
 ```
 ### Usage
 
-#### Commands
+#### Commands `ctrl+shift+p`
 
 On a new project, you will want to run both `initStubs` and `generateAllStubs`.
 
