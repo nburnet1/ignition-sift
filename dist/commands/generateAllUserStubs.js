@@ -4,9 +4,9 @@ exports.generateAllUserStubs = generateAllUserStubs;
 const vscode = require("vscode");
 const path = require("path");
 const child_process_1 = require("child_process");
+const output_1 = require("../output");
 async function generateAllUserStubs(context) {
-    var output = vscode.window.createOutputChannel("ignition-sift");
-    output.show(true);
+    var output = (0, output_1.getOutputChannel)();
     var config = vscode.workspace.getConfiguration("ignitionSift");
     var pythonPath = config.get("pythonPath", "python3");
     var stubGenerator = config.get("stubGenerator", "builtin");

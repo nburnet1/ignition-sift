@@ -1,13 +1,13 @@
 import * as vscode from "vscode";
 import * as path from "path";
 import * as fs from "fs";
+import { getOutputChannel } from "../output";
 
 export async function initIgnitionStubs(
 	context: vscode.ExtensionContext
 ): Promise<void> {
 
-	var output = vscode.window.createOutputChannel("ignition-sift");
-	output.show(true);
+	var output = getOutputChannel();
 
 	var config = vscode.workspace.getConfiguration("ignitionSift");
 	var stubDir = config.get<string>("stubDir", ".stubs");

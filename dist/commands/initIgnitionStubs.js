@@ -4,9 +4,9 @@ exports.initIgnitionStubs = initIgnitionStubs;
 const vscode = require("vscode");
 const path = require("path");
 const fs = require("fs");
+const output_1 = require("../output");
 async function initIgnitionStubs(context) {
-    var output = vscode.window.createOutputChannel("ignition-sift");
-    output.show(true);
+    var output = (0, output_1.getOutputChannel)();
     var config = vscode.workspace.getConfiguration("ignitionSift");
     var stubDir = config.get("stubDir", ".stubs");
     var workspace = vscode.workspace.workspaceFolders;

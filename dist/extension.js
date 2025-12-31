@@ -11,7 +11,6 @@ function activate(context) {
     console.log("🔥 ignition-sift activated");
     var stubIndex = new stubIndex_1.StubIndex();
     stubIndex.rebuild(context);
-    // 🔹 Generate stubs on save (code.py only)
     context.subscriptions.push(vscode.workspace.onDidSaveTextDocument((doc) => {
         if (!doc.fileName.endsWith("code.py")) {
             return;
@@ -26,9 +25,7 @@ function activate(context) {
             stubIndex.rebuild(context);
         });
     }));
-    // 🔹 Auto-import provider
     (0, autoImport_1.registerAutoImportProvider)(context, stubIndex);
-    // 🔹 Commands
     context.subscriptions.push(vscode.commands.registerCommand("ignitionSift.initStubs", () => (0, initIgnitionStubs_1.initIgnitionStubs)(context)));
     context.subscriptions.push(vscode.commands.registerCommand("ignitionSift.generateAllStubs", () => (0, generateAllUserStubs_1.generateAllUserStubs)(context)));
 }

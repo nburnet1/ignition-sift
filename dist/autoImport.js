@@ -2,9 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.registerAutoImportProvider = registerAutoImportProvider;
 const vscode = require("vscode");
-/**
- * Return the line index immediately after the module docstring.
- */
 function findModuleDocstringEndLine(lines) {
     if (lines.length === 0) {
         return 0;
@@ -32,9 +29,6 @@ function findModuleDocstringEndLine(lines) {
     }
     return 0;
 }
-/**
- * Find existing `from X import ...`
- */
 function findExistingFromImport(lines, modulePath) {
     for (var i = 0; i < lines.length; i += 1) {
         var line = lines[i].trim();
@@ -53,29 +47,21 @@ function findExistingFromImport(lines, modulePath) {
     }
     return null;
 }
-/**
- * Find safe top-level insertion line for imports.
- * Blank lines DO NOT terminate the import block.
- */
 function findImportInsertLine(lines) {
     var i = findModuleDocstringEndLine(lines);
     var lastImportLine = -1;
     for (; i < lines.length; i += 1) {
         var raw = lines[i];
         var line = raw.trim();
-        // Skip blank lines entirely
         if (line === "") {
             continue;
         }
-        // Track imports
         if (line.startsWith("import ") || line.startsWith("from ")) {
             lastImportLine = i;
             continue;
         }
-        // First real top-level statement
         break;
     }
-    // Insert after the last import if any exist
     if (lastImportLine >= 0) {
         return lastImportLine + 1;
     }
@@ -130,9 +116,7 @@ function createAction(doc, lines, actions, diagnostic, symbol, modulePath, isPre
         : "Add import: from " + modulePath + " import " + symbol;
     var action = new vscode.CodeAction(title, vscode.CodeActionKind.QuickFix);
     var edit = new vscode.WorkspaceEdit();
-    // 1️⃣ Replace the undefined identifier with the completed symbol
     edit.replace(doc.uri, diagnostic.range, symbol);
-    // 2️⃣ Merge or insert import
     var existing = findExistingFromImport(lines, modulePath);
     if (existing) {
         if (existing.names.indexOf(symbol) >= 0) {

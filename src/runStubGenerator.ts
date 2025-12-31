@@ -1,14 +1,15 @@
 import * as vscode from "vscode";
 import * as path from "path";
 import { spawn } from "child_process";
+import { getOutputChannel } from "./output";
 
 export function runStubGenerator(
 	context: vscode.ExtensionContext,
 	document: vscode.TextDocument,
 	onDone: () => void
 ): void {
-	var output = vscode.window.createOutputChannel("ignition-sift");
-	output.show(true);
+	var output = getOutputChannel();
+
 
 	output.appendLine("runStubGenerator called");
 	output.appendLine("File: " + document.uri.fsPath);

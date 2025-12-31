@@ -1,13 +1,13 @@
 import * as vscode from "vscode";
 import * as path from "path";
 import { spawn } from "child_process";
+import { getOutputChannel } from "../output";
 
 export async function generateAllUserStubs(
 	context: vscode.ExtensionContext
 ): Promise<void> {
 
-	var output = vscode.window.createOutputChannel("ignition-sift");
-	output.show(true);
+	var output = getOutputChannel();
 
 	var config = vscode.workspace.getConfiguration("ignitionSift");
 	var pythonPath = config.get<string>("pythonPath", "python3");

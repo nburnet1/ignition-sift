@@ -47,7 +47,6 @@ class StubIndex {
         var lines = fs.readFileSync(file, "utf8").split(/\r?\n/);
         for (var i = 0; i < lines.length; i += 1) {
             var line = lines[i];
-            // 🚫 ignore indented lines (methods, inner defs)
             if (/^\s+/.test(line)) {
                 continue;
             }
@@ -61,11 +60,9 @@ class StubIndex {
             this.symbols.set(name, list);
         }
     }
-    /** Exact lookup */
     lookup(name) {
         return this.symbols.get(name) || [];
     }
-    /** Case-insensitive prefix lookup */
     prefixLookup(prefix, minLength) {
         var results = new Map();
         if (prefix.length < minLength) {

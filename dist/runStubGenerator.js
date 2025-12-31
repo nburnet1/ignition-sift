@@ -4,9 +4,9 @@ exports.runStubGenerator = runStubGenerator;
 const vscode = require("vscode");
 const path = require("path");
 const child_process_1 = require("child_process");
+const output_1 = require("./output");
 function runStubGenerator(context, document, onDone) {
-    var output = vscode.window.createOutputChannel("ignition-sift");
-    output.show(true);
+    var output = (0, output_1.getOutputChannel)();
     output.appendLine("runStubGenerator called");
     output.appendLine("File: " + document.uri.fsPath);
     var config = vscode.workspace.getConfiguration("ignitionSift");
