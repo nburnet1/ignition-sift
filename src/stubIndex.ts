@@ -56,7 +56,6 @@ export class StubIndex {
 		for (var i = 0; i < lines.length; i += 1) {
 			var line = lines[i];
 
-			// 🚫 ignore indented lines (methods, inner defs)
 			if (/^\s+/.test(line)) {
 				continue;
 			}
@@ -73,12 +72,10 @@ export class StubIndex {
 		}
 	}
 
-	/** Exact lookup */
 	public lookup(name: string): string[] {
 		return this.symbols.get(name) || [];
 	}
 
-	/** Case-insensitive prefix lookup */
 	public prefixLookup(
 		prefix: string,
 		minLength: number

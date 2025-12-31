@@ -11,7 +11,6 @@ export function activate(context: vscode.ExtensionContext): void {
 	var stubIndex = new StubIndex();
 	stubIndex.rebuild(context);
 
-	// 🔹 Generate stubs on save (code.py only)
 	context.subscriptions.push(
 		vscode.workspace.onDidSaveTextDocument((doc) => {
 			if (!doc.fileName.endsWith("code.py")) {
@@ -32,10 +31,8 @@ export function activate(context: vscode.ExtensionContext): void {
 		})
 	);
 
-	// 🔹 Auto-import provider
 	registerAutoImportProvider(context, stubIndex);
 
-	// 🔹 Commands
 	context.subscriptions.push(
 		vscode.commands.registerCommand(
 			"ignitionSift.initStubs",

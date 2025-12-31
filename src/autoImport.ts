@@ -1,9 +1,6 @@
 import * as vscode from "vscode";
 import { StubIndex } from "./stubIndex";
 
-/**
- * Return the line index immediately after the module docstring.
- */
 function findModuleDocstringEndLine(lines: string[]): number {
 	if (lines.length === 0) {
 		return 0;
@@ -35,9 +32,6 @@ function findModuleDocstringEndLine(lines: string[]): number {
 	return 0;
 }
 
-/**
- * Find existing `from X import ...`
- */
 function findExistingFromImport(
 	lines: string[],
 	modulePath: string
@@ -65,10 +59,6 @@ function findExistingFromImport(
 	return null;
 }
 
-/**
- * Find safe top-level insertion line for imports.
- * Blank lines DO NOT terminate the import block.
- */
 function findImportInsertLine(lines: string[]): number {
 	var i = findModuleDocstringEndLine(lines);
 	var lastImportLine = -1;
@@ -77,22 +67,19 @@ function findImportInsertLine(lines: string[]): number {
 		var raw = lines[i];
 		var line = raw.trim();
 
-		// Skip blank lines entirely
 		if (line === "") {
 			continue;
 		}
 
-		// Track imports
 		if (line.startsWith("import ") || line.startsWith("from ")) {
 			lastImportLine = i;
 			continue;
 		}
 
-		// First real top-level statement
+		
 		break;
 	}
 
-	// Insert after the last import if any exist
 	if (lastImportLine >= 0) {
 		return lastImportLine + 1;
 	}
@@ -194,14 +181,12 @@ function createAction(
 	var action = new vscode.CodeAction(title, vscode.CodeActionKind.QuickFix);
 	var edit = new vscode.WorkspaceEdit();
 
-	// 1️⃣ Replace the undefined identifier with the completed symbol
 	edit.replace(
 		doc.uri,
 		diagnostic.range,
 		symbol
 	);
 
-	// 2️⃣ Merge or insert import
 	var existing = findExistingFromImport(lines, modulePath);
 
 	if (existing) {
