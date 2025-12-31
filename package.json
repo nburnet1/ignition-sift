@@ -1,6 +1,7 @@
 {
     "name": "ignition-sift",
     "displayName": "Ignition Sift",
+    "repository": "https://github.com/nburnet1/ignition-sift",
     "extensionDependencies": [
         "ms-pyright.pyright"
     ],
