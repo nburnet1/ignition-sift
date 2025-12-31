@@ -22,7 +22,7 @@ Ignition Sift aims to improve the developer experience by automatically adding i
 ## Getting Started
 
 ### Install the extension
-Ignition Sift can be installed on the code registry or openvsx.
+Ignition Sift can be installed on the [vscode marketplace](https://marketplace.visualstudio.com/items?itemName=nburnet1.ignition-sift), [openvsx registry](https://open-vsx.org/extension/nburnet1/ignition-sift), or the [releases page](https://github.com/nburnet1/ignition-sift/releases)
 
 ### Configuration Defaults
 ```json
