@@ -10,7 +10,7 @@
     ],
     "description": "Barebones, stub-driven auto-imports for Ignition scripting projects.",
     "version": "0.0.0",
-    "icon": "docs/imgs/ignitionSift",
+    "icon": "icon.png",
     "publisher": "nburnet1",
     "engines": {
         "vscode": "^1.85.0"
