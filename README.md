@@ -123,6 +123,17 @@ To ensure the same DX for all developers, you should create a `.code-workspace` 
 		],
 ```
 
+#### Showing script name
+Since all python files are `code.py`, you can also create a custom label in your `.code-workspace` file in the `settings` key. This shows the package name rather than the `code.py`.
+
+
+```json
+		"workbench.editor.customLabels.enabled": true,
+		"workbench.editor.customLabels.patterns": {
+			"**/script-python/**/code.py": "${dirname}"
+		},
+```
+
 #### Sidebar: Install Project Scan Endpoint (8.1 dependency)
 To get the most out of Ignition **Flint**, installing the project scan endpoint will enable the gateway to show your changes in realtime.
 
