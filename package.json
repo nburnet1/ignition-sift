@@ -18,6 +18,12 @@
     "categories": [
         "Other"
     ],
+    "keywords": [
+        "ignition",
+        "jython",
+        "stubs",
+        "python"
+    ],
     "activationEvents": [
         "onLanguage:python"
     ],
