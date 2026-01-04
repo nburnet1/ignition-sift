@@ -138,3 +138,9 @@ Since all python files are `code.py`, you can also create a custom label in your
 To get the most out of Ignition **Flint**, installing the project scan endpoint will enable the gateway to show your changes in realtime.
 
 [Project Scan Endpoint](https://github.com/bw-design-group/ignition-project-scan-endpoint/releases/download/v0.0.4/Project-Scan-Endpoint.modl)
+
+
+# Disclaimer
+Ignition Sift is an independent, unofficial VS Code extension and 
+is not affiliated with, endorsed by, or sponsored by 
+Inductive Automation.
