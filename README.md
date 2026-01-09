@@ -1,4 +1,4 @@
-# ignition-sift
+# Ignition Sift (VS Code Extension)
 
 Barebones, stub-driven auto-imports for Ignition scripting projects.
 
