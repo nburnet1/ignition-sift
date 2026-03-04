@@ -98,30 +98,6 @@ Once a file has been saved and a stub generated, we then can immediately auto im
 
 ![img](docs/imgs/userCreatedFunctionImported.png)
 
-
-
-
-### Ignition Flint
-As mentioned in the [motivation](#motivation), I have been using Ignition Flint for a while and it has worked beautifully and allowed us to offload the development to an external editor. You will be recommended to download Ignition Flint but it is by no means required. Just a great extension!
-
-#### Ignition Flint Example Config (Workspace)
-To ensure the same DX for all developers, you should create a `.code-workspace` file where you can store configurations across environments. Ignition Sift's configurations and many others can be stored this way.
-
-```json
-		"ignitionFlint.ignitionGateways": [
-			{
-				"label": "localhost",
-				"address": "http://localhost:80",
-				"projectPaths": [
-					"/var/ignition-poc/ignition/global"
-				],
-				"forceUpdateDesigner": true,
-				"updateDesignerOnSave": true,
-				"supportsProjectScanEndpoint": true,
-			}
-		],
-```
-
 #### Showing script name
 Since all python files are `code.py`, you can also create a custom label in your `.code-workspace` file in the `settings` key. This shows the package name rather than the `code.py`.
 
@@ -132,11 +108,6 @@ Since all python files are `code.py`, you can also create a custom label in your
 			"**/script-python/**/code.py": "${dirname}"
 		},
 ```
-
-#### Sidebar: Install Project Scan Endpoint (8.1 dependency)
-To get the most out of Ignition **Flint**, installing the project scan endpoint will enable the gateway to show your changes in realtime.
-
-[Project Scan Endpoint](https://github.com/bw-design-group/ignition-project-scan-endpoint/releases/download/v0.0.4/Project-Scan-Endpoint.modl)
 
 
 # Disclaimer
