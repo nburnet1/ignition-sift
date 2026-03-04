@@ -3,7 +3,6 @@
 Barebones, stub-driven auto-imports for Ignition scripting projects.
 
 ## Motivation
-After using [Ignition Flint](https://github.com/keith-gamble/ignition-flint) for the past year, I no longer use the lack-luster script editor baked into the ignition designer.
 Ignition Sift aims to improve the developer experience by automatically adding imports in the `Quick Fix` menu. This extension remedies the need to always type out the absolute path where the developer can simply auto import the function. See [Getting Started](#getting-started) for more details.
 
 ## Features
