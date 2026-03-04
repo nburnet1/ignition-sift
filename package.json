@@ -5,11 +5,8 @@
     "extensionDependencies": [
         "ms-pyright.pyright"
     ],
-    "extensionPack": [
-        "keith-gamble.ignition-flint"
-    ],
     "description": "Barebones, stub-driven auto-imports for Ignition scripting projects.",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "icon": "icon.png",
     "publisher": "nburnet1",
     "engines": {

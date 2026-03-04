@@ -11,7 +11,6 @@ Ignition Sift aims to improve the developer experience by automatically adding i
 	- Bulk generation
 	- Ignition `system` stubs
 - Offers deterministic auto-imports via `ctrl+.`
-- No LSP required
 
 ## Requirements
 - Stub Generation
